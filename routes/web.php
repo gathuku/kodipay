@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login','LoginController@index')->name('login');
+Route::get('/register','RegisterController@index')->name('register');
+Route::get('/login','LoginController@authenticate')->name('login-submit');
+Route::get('/register','RegisterController@register')->name('register-submit');
