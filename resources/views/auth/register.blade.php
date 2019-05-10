@@ -37,7 +37,7 @@
     <!-- ============================================================== -->
     <form class="splash-container" action="{{route('register-submit')}}" method="post">
       @csrf
-      @include('flash::message')
+
           @if($errors->any())
            <div class="alert alert-danger" role="alert">
 
@@ -48,7 +48,7 @@
           @endif
         <div class="card">
             <div class="card-header">
-                <h2 class="mb-2 ">ZEGETECH</h2>
+
                 <p>Please enter your user information.</p>
             </div>
             <div class="card-body">
@@ -58,14 +58,12 @@
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" a>
                 </div>
-                <div class="form-group">
-                    <input  class="form-control form-control-lg" type="text" name="phone" required="" placeholder="Phone number">
-                </div>
+
                 <div class="form-group">
                     <input class="form-control form-control-lg" id="pass1"  name="password"type="password" required="" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" required="" name="password_confirmation" placeholder="Confirm">
+                    <input type="password" class="form-control form-control-lg" required="" name="password_confirmation" placeholder="Confirm Password">
                 </div>
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Register My Account</button>

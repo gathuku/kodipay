@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard' ,function(){
+  return view('main.home');
+})->middleware('auth');
+
 Route::get('/login','LoginController@index')->name('login');
 Route::get('/register','RegisterController@index')->name('register');
-Route::get('/login','LoginController@authenticate')->name('login-submit');
-Route::get('/register','RegisterController@register')->name('register-submit');
+Route::post('/login-','LoginController@authenticate')->name('login-submit');
+Route::post('/register-','RegisterController@register')->name('register-submit');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -10,7 +11,7 @@ class LoginController extends Controller
     {
       return view('auth.login');
     }
-    
+
     public function authenticate(Request $request)
     {
       $credentials=$request->only('email','password');
@@ -18,7 +19,7 @@ class LoginController extends Controller
       //Attempt authenticate
       $auth=Auth::attempt($credentials);
       if ($auth) {
-        return redirect->intended('home');
+        return redirect()->intended('dashboard');
       }
     }
 

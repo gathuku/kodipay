@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login | Exams</title>
+    <title>Login | KodiPay</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <link href="{{asset('/assets/vendor/fonts/circular-std/style.css')}}" rel="stylesheet">
@@ -33,7 +33,7 @@
     <!-- login page  -->
     <!-- ============================================================== -->
     <div class="splash-container">
-         @include('flash::message')
+    
         <div class="card ">
             <div class="card-header text-center"><a href="/"><img class="logo-img" src="{{asset('/assets/images/user.svg')}}" style="height:10em" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
