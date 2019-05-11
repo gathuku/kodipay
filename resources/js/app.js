@@ -18,6 +18,7 @@ Vue.use(VueRouter);
    mode:'history',
    routes,
  });
+ 
 
 /**
  * The following block of code may be used to automatically register your

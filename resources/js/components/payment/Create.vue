@@ -7,8 +7,25 @@
 
                   <div class="card-body">
 
+                       <form class="" action="#" method="post">
+                         <div class="form-group">
+                          <label for="">Select Payment Type</label>
+                          <select class="form-control" name="type">
+                            <option value="Mpesa">Mpesa</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Bank Transfer">Bank Transer</option>
+                          </select>
+                         </div>
+                         <div class="from-group">
+                           <label for="">Enter Amount</label>
+                           <input class="form-control" type="text" name="amount" value="">
+                         </div>
+                         <div class="from-group">
 
-                      You are logged in!
+                           <input class="form-control btn btn-primary" type="submit"  value="Submit">
+                         </div>
+                       </form>
+
                   </div>
               </div>
           </div>

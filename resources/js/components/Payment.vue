@@ -7,8 +7,9 @@
                   <div class="card-header bg-primary"> <strong> Payment</strong></div>
 
                   <div class="card-body">
-                    <router-link>
-                     <button class="btn btn-primary" type="button" name="button">New</button>
+                    <router-link
+                        :to="{name:'paymentCreate', params:{id:1}}"
+                        tag="button" class="btn btn-primary"> New
                     </router-link>
                   <br>
                   <table class="table">
@@ -43,6 +44,8 @@ export default{
   data(){
     return{
       payments:{},
+      
+
       form:{
 
       }
@@ -56,7 +59,16 @@ export default{
 
   created(){
     this.loadPaymet();
-  }
+  },
+
+
+  beforeRouteEnter(to,from,next){
+        if(true){
+            next()
+        }else{
+            next(false)
+        }
+   }
 }
 
 </script>

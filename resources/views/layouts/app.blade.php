@@ -46,7 +46,7 @@
                         <router-link to="/payment" class="nav-link"> <strong>{{ __('Payment') }}</strong></router-link>
                       </li>
                       <li class="nav-item">
-                        <router-link to="/history" class="nav-link"> <strong>{{ __('History') }}</strong></router-link>
+                        <router-link to="#" class="nav-link"> <strong>{{ __('History') }}</strong></router-link>
                       </li>
 
 
