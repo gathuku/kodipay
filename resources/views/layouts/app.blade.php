@@ -40,23 +40,15 @@
                     </ul>
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}"> <strong>{{ __('Dashboard') }}</strong></a>
+                        <a class="nav-link" href="#"> <strong>{{ __('Dashboard') }}</strong></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ route('balance') }}"> <strong>{{ __('Balance') }}</strong></a>
+                        <a class="nav-link" href="#"> <strong>{{ __('Balance') }}</strong></a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('topup') }}"> <strong>{{ __('Top Up') }}</strong></a>
+                          <a class="nav-link" href="#"> <strong>{{ __('Top Up') }}</strong></a>
                       </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('transfer') }}"> <strong>{{ __('Transfer') }}</strong> </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('notifications') }}"> <strong>{{ __('Notification') }}</strong> </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('history')}}"> <strong>{{ __('History') }}</strong> </a>
-                      </li>
+
 
                     </ul>
 

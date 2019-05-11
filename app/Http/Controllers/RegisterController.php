@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class RegisterController extends Controller
 {
@@ -10,7 +11,7 @@ class RegisterController extends Controller
     {
       return view('auth.register');
     }
-    
+
     public function register(Request $request)
     {
       $request->validate([
@@ -20,12 +21,12 @@ class RegisterController extends Controller
       ]);
 
       $user=User::create([
-        'name'->$request->name,
-        'email'->$request->email,
-        'password'->bcrypt($request->password),
+        'name'=>$request->input('name'),
+        'email'=>$request->email,
+        'password'=>bcrypt($request->password),
       ]);
       if ($user) {
-        return redirect('dashboard');
+        return redirect('/dashboard');
       }
     }
 }

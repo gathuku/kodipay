@@ -7,7 +7,7 @@
                 <div class="card-header bg-primary"> <strong> Dashboard</strong></div>
 
                 <div class="card-body">
-                @include('flash::message')
+              
 
                     You are logged in!
                 </div>
