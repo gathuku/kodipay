@@ -40,13 +40,13 @@
                     </ul>
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="#"> <strong>{{ __('Dashboard') }}</strong></a>
+                      <router-link to="/dashboard" class="nav-link"> <strong>{{ __('Dashboard') }}</strong></router-link>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#"> <strong>{{ __('Balance') }}</strong></a>
+                        <router-link to="/payment" class="nav-link"> <strong>{{ __('Payment') }}</strong></router-link>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="#"> <strong>{{ __('Top Up') }}</strong></a>
+                        <router-link to="/history" class="nav-link"> <strong>{{ __('History') }}</strong></router-link>
                       </li>
 
 
@@ -91,7 +91,8 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+
+            <router-view></router-view>
         </main>
     </div>
 </body>

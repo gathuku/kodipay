@@ -5,5 +5,5 @@ import Payment from './components/Payment.vue';
 
 export const routes=[
 {path:'/dashboard', component:Dashboard},
-{path:'payment',component:Payment}
+{path:'/payment',component:Payment}
 ];
