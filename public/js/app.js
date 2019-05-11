@@ -1871,6 +1871,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       payments: {},
+      paymentId: this.$routes.params.id,
       form: {}
     };
   },
@@ -1881,6 +1882,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/payment').then(function (_ref) {
         var data = _ref.data;
         _this.payments = data;
+      });
+    },
+    deletePayment: function deletePayment() {
+      axios.post('api/payment/{{this.paymentId}}').then(function (_ref2) {
+        var data = _ref2.data;
+        return console.log(data);
       });
     }
   },
@@ -1940,7 +1947,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        userId: this.$route.params.id,
+        type: '',
+        amount: ''
+      },
+      message: {}
+    };
+  },
+  methods: {
+    createPayment: function createPayment() {
+      var _this = this;
+
+      axios.post('/api/payment', this.form).then(function (_ref) {
+        var data = _ref.data;
+        _this.message = data;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -37457,23 +37491,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header bg-primary" }, [
-              _c("strong", [_vm._v(" Payment Create")])
-            ]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm.message
+              ? _c("div", { staticClass: "alert alert-success" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.message.message) +
+                      "\n                      "
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("form", { attrs: { action: "#", method: "post" } }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.createPayment($event)
+                  }
+                }
+              },
+              [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "" } }, [
                     _vm._v("Select Payment Type")
@@ -37481,7 +37526,37 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c(
                     "select",
-                    { staticClass: "form-control", attrs: { name: "type" } },
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.type,
+                          expression: "form.type"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "type" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "type",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
                     [
                       _c("option", { attrs: { value: "Mpesa" } }, [
                         _vm._v("Mpesa")
@@ -37502,22 +37577,57 @@ var staticRenderFns = [
                   _c("label", { attrs: { for: "" } }, [_vm._v("Enter Amount")]),
                   _vm._v(" "),
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.amount,
+                        expression: "form.amount"
+                      }
+                    ],
                     staticClass: "form-control",
-                    attrs: { type: "text", name: "amount", value: "" }
+                    attrs: { type: "text", name: "amount", value: "" },
+                    domProps: { value: _vm.form.amount },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "amount", $event.target.value)
+                      }
+                    }
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "from-group" }, [
-                  _c("input", {
-                    staticClass: "form-control btn btn-primary",
-                    attrs: { type: "submit", value: "Submit" }
-                  })
-                ])
-              ])
-            ])
+                _c("br"),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
           ])
         ])
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header bg-primary" }, [
+      _c("strong", [_vm._v(" Payment Create")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "from-group" }, [
+      _c("input", {
+        staticClass: "form-control btn btn-primary col-md-3",
+        attrs: { type: "submit", value: "Submit" }
+      })
     ])
   }
 ]

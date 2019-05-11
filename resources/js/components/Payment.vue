@@ -44,7 +44,8 @@ export default{
   data(){
     return{
       payments:{},
-      
+      paymentId:this.$routes.params.id,
+
 
       form:{
 
@@ -54,6 +55,9 @@ export default{
   methods:{
     loadPaymet(){
       axios.get('api/payment').then(({data})=>{this.payments=data});
+    },
+    deletePayment(){
+      axios.post('api/payment/{{this.paymentId}}').then(({data})=>(console.log(data)))
     }
   },
 

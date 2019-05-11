@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Payment;
+use Auth;
 
 class PaymentController extends Controller
 {
@@ -15,6 +16,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
+        //$payment=Payment::where('user_id',auth()->user()->id);
 
         return Payment::all();
     }
@@ -27,7 +29,25 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //  \Log::info($request);
+        $cretePayment=Payment::create([
+          'user_id'=>$request->userId,
+          'type'=>$request->type,
+          'amount'=>$request->amount,
+        ]);
+
+         if($cretePayment){
+           return [
+             'status'=>'success',
+             'message'=>'Payment Created',
+           ];
+         }else{
+           return [
+             'status'=>'error',
+             'message'=>'Could not be created',
+           ];
+         }
+
     }
 
     /**
