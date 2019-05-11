@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 
 class PaymentTableSeeder extends Seeder
 {
@@ -18,21 +18,25 @@ class PaymentTableSeeder extends Seeder
           'user_id'=>1,
           'type'=> 'mpesa',
           'amount'=>100,
+          'created_at'=>Carbon::now(),
         ],
         1=>[
           'user_id'=>1,
           'type'=> 'mpesa',
           'amount'=>490,
+          'created_at'=>Carbon::now(),
         ],
         2=>[
           'user_id'=>1,
           'type'=> 'mpesa',
           'amount'=>600,
+          'created_at'=>Carbon::now(),
         ],
         3=>[
           'user_id'=>1,
           'type'=> 'mpesa',
           'amount'=>1000,
+          'created_at'=>Carbon::now(),
         ],
         ]);
     }

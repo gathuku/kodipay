@@ -1857,6 +1857,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37276,29 +37285,49 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "col-md-10" }, [
         _c("div", { staticClass: "card" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("table", { staticClass: "table" }, [
-              _vm._m(1),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("router-link", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", name: "button" }
+                  },
+                  [_vm._v("New")]
+                )
+              ]),
               _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.payments, function(payment) {
-                  return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(payment.type))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(payment.amount))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(payment.created_at))])
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
+              _c("br"),
+              _vm._v(" "),
+              _c("table", { staticClass: "table" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.payments, function(payment) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(payment.type))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(payment.amount))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(payment.created_at))]),
+                      _vm._v(" "),
+                      _vm._m(2, true)
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ],
+            1
+          )
         ])
       ])
     ])
@@ -37322,7 +37351,33 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", [_vm._v("Amount")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Date")])
+      _c("th", [_vm._v("Date")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button", name: "button" }
+        },
+        [_vm._v("Edit")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button", name: "button" }
+        },
+        [_vm._v("Delete")]
+      )
     ])
   }
 ]
@@ -52487,6 +52542,9 @@ var routes = [{
 }, {
   path: '/payment',
   component: _components_Payment_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  path: '*',
+  component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }];
 
 /***/ }),
