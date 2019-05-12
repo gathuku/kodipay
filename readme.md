@@ -13,6 +13,11 @@ composer install
 npm install
 ```
 
+### Seed Database
+```
+php artisan db:seed
+```
+
 ## Technologies Used
 ### Front End
 - Boostrap
