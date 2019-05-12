@@ -7,7 +7,8 @@ import PaymentCreate from './components/payment/Create.vue'
 
 export const routes=[
 {path:'/dashboard', component:Dashboard},
-{path:'/payment',component:Payment},
+{path:'/payment',name:'payment',component:Payment},
 {path:'/payment/:id/create',name:'paymentCreate',component:PaymentCreate},
+
 {path:'*', redirect:'/'}
 ];

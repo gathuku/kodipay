@@ -3,10 +3,10 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header bg-primary"> <strong> Payment Create</strong></div>
+                  <div class="card-header bg-primary"> <h3> Payment Create</h3></div>
 
                   <div class="card-body">
-
+                      <button @click="moveBack" class="btn btn-primary" type="button" name="button">Go Back</button>
                         <div v-if="message" class="alert alert-success">
                           {{message.message}}
                         </div>
@@ -55,7 +55,10 @@
     methods:{
      createPayment(){
        axios.post('/api/payment',this.form).then(({data})=>{this.message=data})
-     }
+     },
+     moveBack(){
+       this.$router.push({name:'payment'});
+     },
    },
   }
 </script>

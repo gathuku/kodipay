@@ -81,6 +81,19 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $delete=Payment::where('id',$id)->delete();
+      if($delete){
+          return [
+            'status'=>'success',
+            'message'=>'Payment Deleted',
+          ];
+      }else{
+        return [
+          'status'=>'error',
+          'message'=>'Could not delete',
+          'id'=>$id,
+        ];
+      }
+
     }
-}
+  }

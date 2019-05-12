@@ -12,6 +12,7 @@
                         tag="button" class="btn btn-primary"> New
                     </router-link>
                   <br>
+                  <br>
                   <table class="table">
                   <thead>
                     <th>Payment Type</th>
@@ -25,8 +26,9 @@
                       <td>{{payment.amount}}</td>
                       <td>{{payment.created_at}}</td>
                       <td>
+
                         <button class="btn btn-primary" type="button" name="button">Edit</button>
-                        <button class="btn btn-primary" type="button" name="button">Delete</button>
+                        <button @click="deletePayment(payment.id)" class="btn btn-primary" type="button" name="button">Delete</button>
                        </td>
                     </tr>
                   </tbody>
@@ -44,7 +46,8 @@ export default{
   data(){
     return{
       payments:{},
-      paymentId:this.$routes.params.id,
+      paymentId:'',
+      status:{},
 
 
       form:{
@@ -56,8 +59,22 @@ export default{
     loadPaymet(){
       axios.get('api/payment').then(({data})=>{this.payments=data});
     },
-    deletePayment(){
-      axios.post('api/payment/{{this.paymentId}}').then(({data})=>(console.log(data)))
+    deletePayment(id){
+      const options = {title: 'Confirm Payment Delete?', cancelLabel: 'No'}
+      this.$dialogs.confirm('Are you sure you want to delete this Payment!', options)
+     .then(res => {
+
+      if(res.ok){
+        axios.delete('api/payment/' +id).then(({data})=>{
+
+          const options = {title: 'Info', size: 'sm'}
+          this.$dialogs.alert(data.message, options)
+
+        })
+      }
+    })
+    // Redirect Back
+    this.$router.push({name:'payment'})
     }
   },
 

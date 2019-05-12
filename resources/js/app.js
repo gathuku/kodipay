@@ -9,16 +9,19 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
+import 'v-slim-dialog/dist/v-slim-dialog.css'
+import SlimDialog from 'v-slim-dialog'
 import {routes} from './routes';
 
 
 Vue.use(VueRouter);
+Vue.use(SlimDialog)
 
  const router=new VueRouter({
    mode:'history',
    routes,
  });
- 
+
 
 /**
  * The following block of code may be used to automatically register your

@@ -26,5 +26,5 @@ Route::post('/login-','LoginController@authenticate')->name('login-submit');
 Route::post('/register-','RegisterController@register')->name('register-submit');
 
 Route::get('{any}', function () {
-    return view('layouts.master');
+    return view('layouts.app');
 })->where('any','.*');
