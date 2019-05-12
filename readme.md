@@ -13,9 +13,9 @@ composer install
 npm install
 ```
 
-### Seed Database
+### Database
 ```
-php artisan db:seed
+php artisan migrate --seed
 ```
 
 ## Technologies Used
