@@ -70,14 +70,16 @@ export default{
         axios.delete('api/payment/' +id).then(({data})=>{
 
           const options = {title: 'Info', size: 'sm'}
-          this.$dialogs.alert(data.message, options)
+          this.$dialogs.alert(data.message, options).then(res=>{
+             this.$router.go();
+          })
 
         })
       }
     })
     // Redirect Back
 
-     this.$router.push({name:'payment'});
+
     }
   },
 

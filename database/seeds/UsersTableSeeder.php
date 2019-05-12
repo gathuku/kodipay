@@ -13,15 +13,15 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('users')->insert([
+        
           0=>[
-            'name'=>'Moses Gathuku',
-            'email'=>'mosesgathuku95@gmail.com',
-            'password'=>bcrypt('secret'),
-          ],
-
-          1=>[
             'name'=>'John Doe',
             'email'=>'johndoe@gmail.com',
+            'password'=>bcrypt('secret'),
+          ],
+          1=>[
+            'name'=>'Moses Gathuku',
+            'email'=>'mosesgathuku95@gmail.com',
             'password'=>bcrypt('secret'),
           ],
 

@@ -1905,14 +1905,12 @@ __webpack_require__.r(__webpack_exports__);
               size: 'sm'
             };
 
-            _this2.$dialogs.alert(data.message, options);
+            _this2.$dialogs.alert(data.message, options).then(function (res) {
+              _this2.$router.go();
+            });
           });
         }
       }); // Redirect Back
-
-      this.$router.push({
-        name: 'payment'
-      });
     }
   },
   created: function created() {

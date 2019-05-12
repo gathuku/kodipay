@@ -22,7 +22,7 @@ class PaymentTableSeeder extends Seeder
         ],
         1=>[
           'user_id'=>1,
-          'type'=> 'mpesa',
+          'type'=> 'Cash',
           'amount'=>490,
           'created_at'=>Carbon::now(),
         ],
@@ -34,8 +34,14 @@ class PaymentTableSeeder extends Seeder
         ],
         3=>[
           'user_id'=>1,
-          'type'=> 'mpesa',
+          'type'=> 'cash',
           'amount'=>1000,
+          'created_at'=>Carbon::now(),
+        ],
+        4=>[
+          'user_id'=>1,
+          'type'=> 'Bank Transfer',
+          'amount'=>5000,
           'created_at'=>Carbon::now(),
         ],
         ]);
