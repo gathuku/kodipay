@@ -3,17 +3,17 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header bg-primary"> <h3> Payment Create</h3></div>
+                  <div class="card-header bg-primary"> <h3> Payment Edit</h3></div>
 
                   <div class="card-body">
                       <button @click="moveBack" class="btn btn-primary" type="button" name="button">Go Back</button>
-                          <br>
-                          <br>
+                      <br>
+                      <br>
                         <div v-if="message" class="alert alert-success">
                           {{message.message}}
                         </div>
 
-                       <form @submit.prevent="createPayment">
+                       <form @submit.prevent="updatePayment">
                          <div class="form-group">
                           <label for="">Select Payment Type</label>
                           <select v-model="form.type" class="form-control" name="type">
@@ -46,21 +46,30 @@
     data(){
       return{
         form:{
-          userId:this.$route.params.id,
+          id:'',
           type:'',
           amount:'',
         },
+        Id:this.$route.params.id,
         message:{},
       }
     },
 
     methods:{
-     createPayment(){
-       axios.post('/api/payment',this.form).then(({data})=>{this.message=data})
+     getPayment(id){
+
+        axios.get('/api/payment/' +id).then(({data})=>{this.form=data})
+      },
+     updatePayment(){
+       axios.put('/api/payment/' +this.form.id,this.form).then(({data})=>{this.message=data})
      },
      moveBack(){
        this.$router.push({name:'payment'});
      },
+   },
+
+   created(){
+     this.getPayment(this.Id)
    },
   }
 </script>

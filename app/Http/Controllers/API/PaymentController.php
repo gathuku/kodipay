@@ -58,7 +58,8 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return Payment::where('id',$id)->first();
     }
 
     /**
@@ -70,7 +71,22 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updatePayment=Payment::where('id',$id)->update([
+          'type'=>$request->type,
+          'amount'=>$request->amount,
+        ]);
+
+        if($updatePayment){
+          return [
+            'status'=>'success',
+            'message'=>'Payment Updated',
+          ];
+        }else{
+          return [
+            'status'=>'error',
+            'message'=>'Could not be Updated',
+          ];
+        }
     }
 
     /**

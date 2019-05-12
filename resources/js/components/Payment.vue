@@ -26,8 +26,10 @@
                       <td>{{payment.amount}}</td>
                       <td>{{payment.created_at}}</td>
                       <td>
+                        <router-link :to="{name:'paymentEdit',params:{id:payment.id}}">
+                          <button class="btn btn-primary" type="button" name="button">Edit</button>
+                        </router-link>
 
-                        <button class="btn btn-primary" type="button" name="button">Edit</button>
                         <button @click="deletePayment(payment.id)" class="btn btn-primary" type="button" name="button">Delete</button>
                        </td>
                     </tr>
@@ -74,7 +76,8 @@ export default{
       }
     })
     // Redirect Back
-    this.$router.push({name:'payment'})
+
+     this.$router.push({name:'payment'});
     }
   },
 
