@@ -20,10 +20,12 @@ Route::get('/dashboard' ,function(){
 })->name('home')->middleware('auth');
 
 Route::get('/login','LoginController@index')->name('login');
-Route::get('/logout','LoginController@logout')->name('logout');
+Route::get('/logout','LoginController@getSignOut')->name('logout');
+
 Route::get('/register','RegisterController@index')->name('register');
 Route::post('/login-','LoginController@authenticate')->name('login-submit');
 Route::post('/register-','RegisterController@register')->name('register-submit');
+
 
 Route::get('{any}', function () {
     return view('layouts.app');

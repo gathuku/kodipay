@@ -23,5 +23,12 @@ class LoginController extends Controller
       }
     }
 
+    public function getSignOut() {
+
+  	Auth::logout();
+	  return redirect('/');
+
+}
+
 
 }
